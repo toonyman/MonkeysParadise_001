@@ -3,112 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로또 번호 생성기</title>
+    <title>무료 로또 번호 생성기 - 행운의 숫자 받기</title>
+    <meta name="description" content="버튼 클릭 한 번으로 6개의 행운의 로또 번호를 받아보세요. 저희 무료 로또 번호 생성기는 사용하기 쉽고 빠릅니다.">
+    <meta name="keywords" content="로또, 로또 번호 생성기, 무료 로또, 행운의 숫자, 로또 예측">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="YOUR_WEBSITE_URL"> <!-- TODO: Replace with your actual URL -->
+    <meta property="og:title" content="무료 로또 번호 생성기 - 행운의 숫자 받기">
+    <meta property="og:description" content="버튼 클릭 한 번으로 6개의 행운의 로또 번호를 받아보세요.">
+    <meta property="og:image" content="YOUR_OG_IMAGE_URL"> <!-- TODO: Replace with an image URL for sharing -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="YOUR_WEBSITE_URL"> <!-- TODO: Replace with your actual URL -->
+    <meta property="twitter:title" content="무료 로또 번호 생성기 - 행운의 숫자 받기">
+    <meta property="twitter:description" content="버튼 클릭 한 번으로 6개의 행운의 로또 번호를 받아보세요.">
+    <meta property="twitter:image" content="YOUR_OG_IMAGE_URL"> <!-- TODO: Replace with an image URL for sharing -->
+
     <link rel="stylesheet" href="style.css">
+    <link rel="canonical" href="YOUR_WEBSITE_URL"> <!-- TODO: Replace with your actual URL -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7644009675634803"
      crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="theme-toggle">🌙</div>
-    <div class="container">
-        
-        <div class="ad-container">
-            <!-- 상단 광고 -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-7644009675634803"
-                 data-ad-slot="YOUR_AD_SLOT_ID" 
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
+    <header class="container">
+        <button id="theme-toggle" aria-label="테마 전환">🌙</button>
+    </header>
 
-        <div class="generator-section">
-            <p>오늘의 예감이 좋은 숫자는 무엇인가요?</p>
+    <main class="container">
+        <section class="generator-section">
+            <h1>오늘의 행운 로또 번호</h1>
+            <p>버튼을 눌러 6개의 숫자를 생성하세요.</p>
             <button class="button button-primary" onclick="generateNumbers()">
                 ✨ 로또 번호 생성하기
             </button>
             <div class="results" id="results"></div>
-        </div>
+        </section>
 
-        <div class="ad-container">
-            <!-- 하단 광고 -->
+        <aside class="ad-container">
+            <!-- 상단 광고 -->
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-7644009675634803"
-                 data-ad-slot="YOUR_AD_SLOT_ID" 
+                 data-ad-slot="YOUR_AD_SLOT_ID"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
             <script>
                  (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </div>
+        </aside>
 
-    </div>
+        <aside class="ad-container">
+            <!-- 하단 광고 -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7644009675634803"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </aside>
+    </main>
 
-    <script>
-        // 번호 색상 결정
-        function getNumberColor(num) {
-            if (num <= 10) return 'color-1';
-            if (num <= 20) return 'color-2';
-            if (num <= 30) return 'color-3';
-            if (num <= 40) return 'color-4';
-            return 'color-5';
-        }
+    <footer class="container">
+        <p>&copy; 2026 로또 번호 생성기. 모든 권리 보유.</p>
+    </footer>
 
-        // 로또 번호 생성 (1게임 고정)
-        function generateNumbers() {
-            const resultsDiv = document.getElementById('results');
-            resultsDiv.innerHTML = '';
-
-            const numbers = new Set();
-            while (numbers.size < 6) {
-                numbers.add(Math.floor(Math.random() * 45) + 1);
-            }
-            const sortedNumbers = [...numbers].sort((a, b) => a - b);
-
-            const resultHTML = `
-                <div class="result-item">
-                    <div class="numbers">
-                        ${sortedNumbers.map(num => `
-                            <div class="number-ball ${getNumberColor(num)}">${num}</div>
-                        `).join('')}
-                    </div>
-                </div>
-            `;
-            resultsDiv.innerHTML = resultHTML;
-        }
-
-        // 테마 설정
-        const themeToggle = document.getElementById('theme-toggle');
-        const html = document.documentElement;
-
-        themeToggle.addEventListener('click', () => {
-            const isDarkMode = html.dataset.theme === 'dark';
-            if (isDarkMode) {
-                html.dataset.theme = 'light';
-                themeToggle.textContent = '🌙';
-                localStorage.setItem('theme', 'light');
-            } else {
-                html.dataset.theme = 'dark';
-                themeToggle.textContent = '☀️';
-                localStorage.setItem('theme', 'dark');
-            }
-        });
-
-        // 초기 테마 설정
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-        if (savedTheme) {
-            html.dataset.theme = savedTheme;
-            themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-        } else if (prefersDark) {
-            html.dataset.theme = 'dark';
-            themeToggle.textContent = '☀️';
-        }
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
