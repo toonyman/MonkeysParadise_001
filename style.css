@@ -73,6 +73,13 @@ body {
     margin-bottom: 20px;
 }
 
+.generator-section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: var(--text-color); /* Use existing text color variable */
+}
+
 .button {
     padding: 14px 28px;
     border: none;
