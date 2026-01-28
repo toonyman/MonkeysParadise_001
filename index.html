@@ -21,398 +21,10 @@
             crossorigin="anonymous"></script>
     -->
     
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #1e3a8a;
-            --secondary-color: #3b82f6;
-            --accent-color: #fbbf24;
-            --success-color: #10b981;
-            --background: #f8fafc;
-            --card-bg: #ffffff;
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-            --border-color: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            background: var(--card-bg);
-            box-shadow: var(--shadow);
-            margin-bottom: 30px;
-            border-radius: 12px;
-            padding: 30px;
-            text-align: center;
-        }
-
-        h1 {
-            color: var(--primary-color);
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
-
-        /* AdSense 광고 영역 - 상단 */
-        .ad-container-top {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: var(--shadow);
-            min-height: 120px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px dashed var(--border-color);
-        }
-
-        .ad-placeholder {
-            color: var(--text-secondary);
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .generator-section {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .controls {
-            display: grid;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .control-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        label {
-            font-weight: 600;
-            color: var(--text-primary);
-            font-size: 0.95rem;
-        }
-
-        input[type="number"],
-        select {
-            padding: 12px 16px;
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        input[type="number"]:focus,
-        select:focus {
-            outline: none;
-            border-color: var(--secondary-color);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-        }
-
-        .exclude-numbers {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            padding: 12px;
-            background: var(--background);
-            border-radius: 8px;
-            min-height: 50px;
-        }
-
-        .exclude-tag {
-            background: var(--primary-color);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .exclude-tag button {
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-size: 1.2rem;
-            line-height: 1;
-            padding: 0;
-        }
-
-        .button {
-            padding: 14px 28px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .button-primary {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            box-shadow: var(--shadow);
-        }
-
-        .button-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .button-primary:active {
-            transform: translateY(0);
-        }
-
-        .results {
-            margin-top: 30px;
-        }
-
-        .result-item {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-left: 4px solid var(--secondary-color);
-            animation: slideIn 0.5s ease;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .game-label {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .numbers {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .number-ball {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            animation: popIn 0.3s ease;
-        }
-
-        @keyframes popIn {
-            0% {
-                transform: scale(0);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        .number-ball.color-1 { background: linear-gradient(135deg, #fbbf24, #f59e0b); }
-        .number-ball.color-2 { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-        .number-ball.color-3 { background: linear-gradient(135deg, #ef4444, #dc2626); }
-        .number-ball.color-4 { background: linear-gradient(135deg, #64748b, #475569); }
-        .number-ball.color-5 { background: linear-gradient(135deg, #10b981, #059669); }
-
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        /* AdSense 광고 영역 - 사이드바 */
-        .ad-container-side {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: var(--shadow);
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px dashed var(--border-color);
-        }
-
-        .stats-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: var(--shadow);
-        }
-
-        .stats-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        .stat-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .stat-item:last-child {
-            border-bottom: none;
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-        }
-
-        .stat-value {
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .info-section {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 30px;
-            margin-top: 30px;
-            box-shadow: var(--shadow);
-        }
-
-        .info-section h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-
-        .info-section p {
-            color: var(--text-secondary);
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-
-        .info-section ul {
-            list-style-position: inside;
-            color: var(--text-secondary);
-            margin-bottom: 15px;
-        }
-
-        .info-section li {
-            margin-bottom: 8px;
-        }
-
-        footer {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            margin-top: 30px;
-            color: var(--text-secondary);
-            box-shadow: var(--shadow);
-        }
-
-        @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            .numbers {
-                justify-content: center;
-            }
-
-            .number-ball {
-                width: 45px;
-                height: 45px;
-                font-size: 1.1rem;
-            }
-
-            .ad-container-side {
-                min-height: 250px;
-            }
-        }
-
-        .history-section {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 2px solid var(--border-color);
-        }
-
-        .history-section h3 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .clear-history {
-            background: #ef4444;
-            color: white;
-            padding: 8px 16px;
-            font-size: 0.9rem;
-            margin-top: 10px;
-        }
-
-        .clear-history:hover {
-            background: #dc2626;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="theme-toggle">🌙</div>
     <div class="container">
         <header>
             <h1>🎰 프로 로또 번호 생성기</h1>
@@ -754,6 +366,36 @@
             loadStats();
             displayHistory();
         });
+
+        // 테마 설정
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        themeToggle.addEventListener('click', () => {
+            const isDarkMode = html.dataset.theme === 'dark';
+            if (isDarkMode) {
+                html.dataset.theme = 'light';
+                themeToggle.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.dataset.theme = 'dark';
+                themeToggle.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // 초기 테마 설정
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme) {
+            html.dataset.theme = savedTheme;
+            themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        } else if (prefersDark) {
+            html.dataset.theme = 'dark';
+            themeToggle.textContent = '☀️';
+        }
+
     </script>
 </body>
 </html>
