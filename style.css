@@ -52,25 +52,11 @@ body {
 }
 
 .ad-container {
-    background: var(--card-bg);
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: var(--shadow);
-    min-height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px dashed var(--border-color);
-    color: var(--text-color);
+    /* 기존 스타일 제거 */
 }
 
 .generator-section {
-    background: var(--card-bg);
-    border-radius: 12px;
-    padding: 40px;
-    box-shadow: var(--shadow-lg);
-    margin-bottom: 20px;
+    /* 기존 스타일 제거 */
 }
 
 .generator-section p {
