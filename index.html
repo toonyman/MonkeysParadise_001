@@ -49,6 +49,15 @@
     </div>
 
     <script>
+        // 번호 색상 결정
+        function getNumberColor(num) {
+            if (num <= 10) return 'color-1';
+            if (num <= 20) return 'color-2';
+            if (num <= 30) return 'color-3';
+            if (num <= 40) return 'color-4';
+            return 'color-5';
+        }
+
         // 로또 번호 생성 (1게임 고정)
         function generateNumbers() {
             const resultsDiv = document.getElementById('results');
@@ -60,7 +69,16 @@
             }
             const sortedNumbers = [...numbers].sort((a, b) => a - b);
 
-            resultsDiv.innerHTML = sortedNumbers.join(' ');
+            const resultHTML = `
+                <div class="result-item">
+                    <div class="numbers">
+                        ${sortedNumbers.map(num => `
+                            <div class="number-ball ${getNumberColor(num)}">${num}</div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            resultsDiv.innerHTML = resultHTML;
         }
 
         // 테마 설정
