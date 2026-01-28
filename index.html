@@ -57,30 +57,27 @@
             return 'color-5';
         }
 
-        // 로또 번호 생성 (5게임 고정)
+        // 로또 번호 생성 (1게임 고정)
         function generateNumbers() {
             const resultsDiv = document.getElementById('results');
             resultsDiv.innerHTML = '';
 
-            for (let game = 0; game < 5; game++) {
-                const numbers = new Set();
-                while (numbers.size < 6) {
-                    numbers.add(Math.floor(Math.random() * 45) + 1);
-                }
-                const sortedNumbers = [...numbers].sort((a, b) => a - b);
-
-                const resultHTML = `
-                    <div class="result-item">
-                        <div class="game-label">게임 ${game + 1}</div>
-                        <div class="numbers">
-                            ${sortedNumbers.map(num => `
-                                <div class="number-ball ${getNumberColor(num)}">${num}</div>
-                            `).join('')}
-                        </div>
-                    </div>
-                `;
-                resultsDiv.innerHTML += resultHTML;
+            const numbers = new Set();
+            while (numbers.size < 6) {
+                numbers.add(Math.floor(Math.random() * 45) + 1);
             }
+            const sortedNumbers = [...numbers].sort((a, b) => a - b);
+
+            const resultHTML = `
+                <div class="result-item">
+                    <div class="numbers">
+                        ${sortedNumbers.map(num => `
+                            <div class="number-ball ${getNumberColor(num)}">${num}</div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            resultsDiv.innerHTML = resultHTML;
         }
 
         // 테마 설정
