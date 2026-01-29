@@ -51,8 +51,10 @@ body {
 }
 
 .ad-container {
-    /* 기존 스타일 제거 */
+    margin: 20px 0;
 }
+
+
 
 .generator-section {
     /* 기존 스타일 제거 */
